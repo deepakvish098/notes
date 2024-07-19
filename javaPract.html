@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        pre{
+            background-color: rgb(242, 228, 228);
+            color: rgb(0, 0, 0);
+            width: 1000px;
+            height: 800px;
+			font-size: 20px;
+            overflow: scroll;
+            margin: 0 auto;
+			padding: 30px;
+			overflow-x: hidden;
+			border-radius: 10px;
+        }
+
+		body{
+			background-color: rgb(49, 94, 112);
+			color: aliceblue;
+		}
+    </style>
+</head>
+<body>
+     <h1>practical 1 </h1>
+     <h2>QA.</h2>
+    <pre>
+//write a program to create class box and implement the concept of constructor <br> oveloading method  overloading ,static method . write the program to create a class called Box and by 
+//using constructor.
+//overloading accept the parameter & values and calculate volume of rectangle
+//use static method to calculate area of rectangle
+
+import java.io.*;
+class Box
+{
+    double width, height, breadth;
+	static double CalArea(double x,double y)
+	{
+	  return (x*y);
+	}
+	Box(double w,double h,double b)
+	{
+	  width=w;
+	  height=h;
+	  breadth=b;
+	}
+	Box(double len)
+	{
+	 width  =height=breadth=len;   
+	
+	}
+	double volume()
+	{
+	 return width*height*breadth;
+	}
+	
+	
+}
+class CalBox
+{
+   public static void main(String args[])
+   {
+      double area = Box.CalArea(4.3,3.3);
+	  System.out.println("the area is :"+ area);
+	  
+	  Box b1=new Box(2.2,3.4,5.5);
+	  System.out.println("the volume of 4 parameter is "+ b1.volume());
+	  
+	  Box b2= new Box(2.3);
+	  System.out.println(" the volume of 3 parameter"+b2.volume());
+	  
+   }
+}
+
+    </pre>
+
+    <h1>QB</h1>
+
+    <pre>
+        // write the program to implement the concept of inheritence and method overriding.
+  
+
+
+
+
+
+
+import java.io.*;
+import java.util.*;
+class Employee
+{
+   float salary=4000;
+   void incrementSalary()
+   {
+       System.out.println("the employee incrementSalary is (0.2)"+(salary +(salary*0.2)));
+	   
+   }
+   
+}
+class PermanentEmployee extends Employee
+{
+   void incrementSalary()
+   {
+       System.out.println("the employe incrementSalary (0.5)"+ (salary+(salary*0.5)));
+   }
+}
+class EmpSal1
+{
+    public static void main(String args[])
+	{
+	   PermanentEmployee p1=new PermanentEmployee();
+	   p1.incrementSalary();
+	}
+}
+   
+</pre>
+
+<h1>Practical 2</h1>
+<h2>QA</h2>
+<pre>
+    // practical 2
+ 
+import java.util.Scanner;
+abstract class Shape
+{
+    double l;
+	double b;
+	
+	Shape(double x,double y)
+	{
+	   l=x;
+	   b=y;
+	}
+	abstract double area();      // declaration of abstract method
+
+}
+
+
+class Rectangle extends Shape
+{
+     Rectangle(double x , double y)
+	 {
+	     super(x,y);
+	 }
+	 double area()  // method override for rectangle
+	 {
+	  System.out.println("Area of rectangle");
+	  return l*b;
+	 }
+}
+
+
+class Triangle extends Shape
+{
+    Triangle(double x,double y)
+	{
+	    super(x,y);
+	}
+	double area()
+	{
+	  System.out.println("Area of trangle");
+	  return l*b;
+	}
+
+}
+
+class ShapeArea
+{
+  public static void main(String args[])
+  {
+     Rectangle r = new Rectangle(2,3);
+	 System.out.println("Area is:"+r.area());
+	 
+	 Triangle t = new Triangle(10,2);
+	 System.out.println("Area of triganle is"+t.area());
+  
+  }
+}
+</pre>
+
+<h1> QB</h1>
+    
+<pre>
+    import java.util.Scanner;
+interface Account
+{
+  void deposit(double amt);
+  void withdraw(double amt);
+   double getBalance();
+
+}
+
+class SavingAccount implements Account
+{
+    double balance;
+	
+	 SavingAccount(double initialDeposit)
+	 {
+	    balance=initialDeposit;
+	 }
+	 public void deposit(double amount)
+	 {
+		   balance+=amount;
+	   System.out.println("deposit balance is:"+balance);
+	  
+	  
+	    
+	 
+	 }
+	 
+	 public void withdraw(double amount)
+	 {
+	     balance-=amount;
+	    System.out.println("withraw balance is " +balance);
+	 }
+	 
+	 
+	 public double  getBalance()
+	 {
+	   return balance;
+	 }
+}
+
+class Bank
+{
+   public static void main(String args[])
+   {
+      SavingAccount s1 = new SavingAccount(1000);
+	  s1.deposit(200);
+	  s1.getBalance();
+	  
+	   SavingAccount s2 = new SavingAccount(1000);
+	  s2.withdraw(200);
+	  s2.getBalance();
+   }
+
+
+
+
+}
+</pre>
+</body>
+</html>
